@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="tagger">
+    <file>assigned.png</file>
+    <file>inherited.png</file>
+    <file>not-assigned.png</file>
+  </qresource>
+</RCC>
