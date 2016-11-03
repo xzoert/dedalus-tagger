@@ -179,6 +179,7 @@ class Resource:
 		self.modified_at=None
 		self.tags=[]
 		data=self.post('/resource/',{'url':self.url},2.0)
+		self._modified=False
 		if not data:
 			self.label=self.autolabel()
 			self._modified=True
@@ -187,6 +188,7 @@ class Resource:
 				self.label=data['label']
 			else: 
 				self.label=self.autolabel()
+				self._modified=True
 			if 'description' in data: self.description=data['description'] 
 			if 'modified_at' in data: self.modified_at=data['modified_at']/1000.0
 			if 'created_at' in data: self.created_at=data['created_at']/1000.0
@@ -195,7 +197,6 @@ class Resource:
 				for tag in data['_tags']:
 					self.collection._addTag(tag,self._path)
 			
-		self._modified=False
 		
 	def autolabel(self):
 		if self.url:
