@@ -4,7 +4,7 @@
 from PySide.QtCore import *
 from PySide.QtGui import *
 import tagger_widget
-import sys, urllib.request, json
+import sys, urllib.request, urllib.parse, json
 from model import *
 import os, os.path, json
 
@@ -102,10 +102,17 @@ class AppMainWindow(QMainWindow):
 		self.ui.labelEdit.setText(res.getLabel())
 		url=res.getUrl()
 		self.tableModel.init()
-		if res.url[:7]=='file://' and not os.path.exists(res.url[7:]):
-			self.ui.urlLabel.setText('<font color="red">'+url+'</font>')
+		if res.url[:7]=='file://':
+			fpath=urllib.parse.unquote(res.url[7:])
+			self.ui.urlCaption.setText('Path')
+			if not os.path.exists(fpath):
+				self.ui.urlLabel.setText('<font color="red">'+fpath+'</font>')
+			else:
+				self.ui.urlLabel.setText(fpath)
+				
 		else:
-			self.ui.urlLabel.setText(url)
+			self.ui.urlCaption.setText('URL')
+			self.ui.urlLabel.setText(urllib.parse.unquote(url))
 		
 	def resourceChanged(self,item):
 		self.collection.gotoResource(item.getResource().getIndex())
@@ -126,6 +133,7 @@ class AppMainWindow(QMainWindow):
 		res=self.collection.getCurrentResource()
 		if res:
 			res.setLabel(s)
+			self.ui.resourceList.item(res.getIndex()).setText(s)
 
 	def itemClicked(self,index):
 		self.ui.tableView.selectionModel().select(index, QItemSelectionModel.Deselect)

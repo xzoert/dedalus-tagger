@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'tagger.ui'
 #
-# Created: Tue Nov  1 11:25:26 2016
+# Created: Wed Nov  2 16:45:13 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -73,26 +73,22 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2 = QtGui.QHBoxLayout(self.widget_2)
         self.horizontalLayout_2.setContentsMargins(0, 9, 0, -1)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.label = QtGui.QLabel(self.widget_2)
-        self.label.setMinimumSize(QtCore.QSize(50, 0))
-        self.label.setMaximumSize(QtCore.QSize(50, 16777215))
+        self.urlCaption = QtGui.QLabel(self.widget_2)
+        self.urlCaption.setMinimumSize(QtCore.QSize(50, 0))
+        self.urlCaption.setMaximumSize(QtCore.QSize(50, 16777215))
         font = QtGui.QFont()
         font.setWeight(75)
         font.setBold(True)
-        self.label.setFont(font)
-        self.label.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.label.setObjectName("label")
-        self.horizontalLayout_2.addWidget(self.label)
+        self.urlCaption.setFont(font)
+        self.urlCaption.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.urlCaption.setObjectName("urlCaption")
+        self.horizontalLayout_2.addWidget(self.urlCaption)
         self.urlLabel = QtGui.QLabel(self.widget_2)
         font = QtGui.QFont()
         font.setItalic(True)
         self.urlLabel.setFont(font)
         self.urlLabel.setObjectName("urlLabel")
         self.horizontalLayout_2.addWidget(self.urlLabel)
-        self.pushButton = QtGui.QPushButton(self.widget_2)
-        self.pushButton.setMaximumSize(QtCore.QSize(70, 16777215))
-        self.pushButton.setObjectName("pushButton")
-        self.horizontalLayout_2.addWidget(self.pushButton)
         self.verticalLayout_2.addWidget(self.widget_2)
         self.widget_3 = QtGui.QWidget(self.widget_4)
         self.widget_3.setObjectName("widget_3")
@@ -166,9 +162,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Dedalus tagger", None, QtGui.QApplication.UnicodeUTF8))
         self.fileLabel.setText(QtGui.QApplication.translate("MainWindow", "Files", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("MainWindow", "URL", None, QtGui.QApplication.UnicodeUTF8))
+        self.urlCaption.setText(QtGui.QApplication.translate("MainWindow", "URL", None, QtGui.QApplication.UnicodeUTF8))
         self.urlLabel.setText(QtGui.QApplication.translate("MainWindow", "file:///questo/e/quello.pdf", None, QtGui.QApplication.UnicodeUTF8))
-        self.pushButton.setText(QtGui.QApplication.translate("MainWindow", "Relocate", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("MainWindow", "Label", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("MainWindow", "Tags", None, QtGui.QApplication.UnicodeUTF8))
         self.cancelButton.setText(QtGui.QApplication.translate("MainWindow", "Cancel", None, QtGui.QApplication.UnicodeUTF8))

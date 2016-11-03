@@ -1,4 +1,4 @@
-import urllib.request, json
+import urllib.request, urllib.parse, json, re, html
 
 
 def pathFromUrl(url):
@@ -113,6 +113,10 @@ class ResourceCollection:
 			return
 		tag=self.tags[tagIdx]
 		tag.name=name
+		for url in tag.taggings:
+			if tag.taggings[url].state==Tag.ASSIGNED:
+				res=self.resourceByUrl(url)
+				res._modified=True
 		
 	def setComment(self,tagIdx,comment):
 		tagging=self.getTagging(tagIdx)
@@ -160,7 +164,9 @@ class Resource:
 		self.idx=None
 		self.url=url
 		if self.url[0]=='/':
-			self.url='file://'+self.url
+			self.url='file://'+urllib.parse.quote(self.url)
+		else:
+			self.url=url
 		self._path=pathFromUrl(self.url)
 		self._modified=False
 		self.load()
@@ -175,6 +181,7 @@ class Resource:
 		data=self.post('/resource/',{'url':self.url},2.0)
 		if not data:
 			self.label=self.autolabel()
+			self._modified=True
 		else:
 			if 'label' in data: 
 				self.label=data['label']
@@ -192,7 +199,20 @@ class Resource:
 		
 	def autolabel(self):
 		if self.url:
-			return self.url.split('/')[-1]
+			if self.url[:4]=='http':
+				try:
+					conn=urllib.request.urlopen(self.url,None,timeout=3.0)
+					content=conn.read(10000).decode('utf-8')
+					print(content)
+					m=re.search('<title>([^<]+)',content,re.IGNORECASE)
+					if m:
+						label=html.unescape(m.group(1))
+						label=re.sub('\s+',' ',label).strip()
+						return label
+				except:
+					pass
+					
+			return urllib.parse.unquote(self.url.split('/')[-1])
 		
 	def save(self):
 		if self.modified:
