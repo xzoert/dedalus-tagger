@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'tagger.ui'
 #
-# Created: Wed Nov  2 16:45:13 2016
+# Created: Fri Nov  4 08:14:53 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,6 +13,9 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(815, 597)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/tagger/dedalus.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtGui.QGridLayout(self.centralwidget)
@@ -160,7 +163,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Dedalus tagger", None, QtGui.QApplication.UnicodeUTF8))
+        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Dedalus Tagger", None, QtGui.QApplication.UnicodeUTF8))
         self.fileLabel.setText(QtGui.QApplication.translate("MainWindow", "Files", None, QtGui.QApplication.UnicodeUTF8))
         self.urlCaption.setText(QtGui.QApplication.translate("MainWindow", "URL", None, QtGui.QApplication.UnicodeUTF8))
         self.urlLabel.setText(QtGui.QApplication.translate("MainWindow", "file:///questo/e/quello.pdf", None, QtGui.QApplication.UnicodeUTF8))
