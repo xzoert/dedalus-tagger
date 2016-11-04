@@ -170,25 +170,6 @@ class AppMainWindow(QMainWindow):
 		self.tableModel.reinit()
 		self.ui.tableView.selectionModel().select(QModelIndex(), QItemSelectionModel.Clear)
 	
-	def saveClicked(self):
-		self.save()
-				
-	def save(self):
-		label=self.ui.labelEdit.text()
-		tags=self.model.getTags()
-		r=self.post('/update/',{'url':self.url,'tags':tags,'data':{'label':label}},2.0)
-		'''
-		body=json.dumps({'url':self.url,'tags':tags,'data':{'label':label}}).encode('utf-8')
-		addr=self.baseUrl+'/update/'
-		conn = urllib.request.urlopen(addr,body,timeout=2)
-		r=conn.read().decode('utf-8')
-		conn.close()
-		r=json.loads(r)
-		'''
-		self.saved(r)
-		
-	def saved(self,data):
-		print('SAVED',data)
 
 	def savePrefs(self):
 		confFile=os.path.expanduser("~/.dedalus/tagger.json")

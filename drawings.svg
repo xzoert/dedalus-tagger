@@ -772,9 +772,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70000001"
-     inkscape:cx="496.77425"
-     inkscape:cy="648.55668"
+     inkscape:zoom="1.4"
+     inkscape:cx="518.3983"
+     inkscape:cy="653.51871"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -928,7 +928,7 @@
        inkscape:export-ydpi="9.6428576"
        inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/tagme.png" />
     <path
-       style="fill:#71b7c3;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:20;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter5076)"
+       style="fill:#71eec3;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:20;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter5076)"
        d="m 85.714285,752.3622 0,-120 83.857145,0 20,-20 60,0 22.14286,20 0,120 z"
        id="path5060"
        inkscape:connector-curvature="0"
@@ -937,7 +937,7 @@
        inkscape:export-xdpi="8.6974916"
        inkscape:export-ydpi="8.6974916" />
     <path
-       style="fill:#428e9c;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:12;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter5064)"
+       style="fill:#3cc595;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:12;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter5064)"
        d="M 83.188904,755.89773 45.714285,672.3622 82.178751,671.35205 Z"
        id="path5062"
        inkscape:connector-curvature="0"
@@ -953,5 +953,53 @@
        inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/delete.png"
        inkscape:export-xdpi="7.4423122"
        inkscape:export-ydpi="7.4423122" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:5.77654409;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 506.63939,356.1436 c -44.50066,67.51385 101.23258,131.58652 72.02888,0"
+       id="path4299"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/home.png"
+       inkscape:export-xdpi="23.41803"
+       inkscape:export-ydpi="23.41803" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#f63a00;stroke-width:12;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 480,362.3622 c 0,0 50,0 60,-40 l 50,40 0,0"
+       id="path4281"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/home.png"
+       inkscape:export-xdpi="23.41803"
+       inkscape:export-ydpi="23.41803" />
+    <ellipse
+       style="opacity:1;fill:#e2e216;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4301"
+       cx="539.5"
+       cy="411.86221"
+       rx="7.5"
+       ry="17.5"
+       inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/home.png"
+       inkscape:export-xdpi="23.41803"
+       inkscape:export-ydpi="23.41803" />
+    <ellipse
+       style="opacity:1;fill:#e2e216;fill-opacity:1;stroke:#000000;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4307"
+       cx="527.5"
+       cy="369.86221"
+       rx="2.5"
+       ry="7.5"
+       inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/home.png"
+       inkscape:export-xdpi="23.41803"
+       inkscape:export-ydpi="23.41803" />
+    <ellipse
+       style="opacity:1;fill:#e2e216;fill-opacity:1;stroke:#000000;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4309"
+       cx="562.5"
+       cy="369.86221"
+       rx="2.5"
+       ry="7.5"
+       inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/home.png"
+       inkscape:export-xdpi="23.41803"
+       inkscape:export-ydpi="23.41803" />
   </g>
 </svg>

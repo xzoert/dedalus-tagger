@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="tagger">
+    <file>dedalus.svg</file>
     <file>assigned.png</file>
     <file>inherited.png</file>
     <file>not-assigned.png</file>
