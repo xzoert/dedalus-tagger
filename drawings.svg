@@ -774,7 +774,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
      inkscape:cx="518.3983"
-     inkscape:cy="653.51871"
+     inkscape:cy="510.66157"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -813,6 +813,16 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <circle
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#cfcfcf;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4286-8"
+       cx="-750.95648"
+       cy="310.93527"
+       r="29.401484"
+       inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/refresh.png"
+       inkscape:export-xdpi="33.209854"
+       inkscape:export-ydpi="33.209854"
+       transform="matrix(-0.44042573,-0.89778905,0.89778905,-0.44042573,0,0)" />
     <circle
        style="fill:#00c800;fill-opacity:1;stroke:#000000;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4877)"
        id="path3357"
@@ -1001,5 +1011,53 @@
        inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/home.png"
        inkscape:export-xdpi="23.41803"
        inkscape:export-ydpi="23.41803" />
+    <path
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#16b616;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4286"
+       sodipodi:type="arc"
+       sodipodi:cx="-750.95648"
+       sodipodi:cy="310.93527"
+       sodipodi:rx="29.401484"
+       sodipodi:ry="29.401484"
+       sodipodi:start="0"
+       sodipodi:end="2.0943951"
+       d="m -721.555,310.93527 a 29.401484,29.401484 0 0 1 -14.70074,25.46243 29.401484,29.401484 0 0 1 -29.40148,0"
+       sodipodi:open="true"
+       inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/refresh.png"
+       inkscape:export-xdpi="33.209854"
+       inkscape:export-ydpi="33.209854"
+       transform="matrix(-0.44042573,-0.89778905,0.89778905,-0.44042573,0,0)" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#16b616;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 606.23527,521.41796 -18.15946,-6.20637 6.20638,-18.15947 0,0"
+       id="path4288"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/refresh.png"
+       inkscape:export-xdpi="33.209854"
+       inkscape:export-ydpi="33.209854" />
+    <path
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#16b616;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4286-5"
+       sodipodi:type="arc"
+       sodipodi:cx="750.82117"
+       sodipodi:cy="-311.1691"
+       sodipodi:rx="29.401484"
+       sodipodi:ry="29.401484"
+       sodipodi:start="0"
+       sodipodi:end="2.0943951"
+       d="m 780.22265,-311.1691 a 29.401484,29.401484 0 0 1 -14.70074,25.46243 29.401484,29.401484 0 0 1 -29.40148,0"
+       sodipodi:open="true"
+       inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/refresh.png"
+       inkscape:export-xdpi="33.209854"
+       inkscape:export-ydpi="33.209854"
+       transform="matrix(0.44042573,0.89778905,-0.89778905,0.44042573,0,0)" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#16b616;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 613.70474,552.87079 18.15946,6.20638 -6.20638,18.15946 0,0"
+       id="path4288-5"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/refresh.png"
+       inkscape:export-xdpi="33.209854"
+       inkscape:export-ydpi="33.209854" />
   </g>
 </svg>

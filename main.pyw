@@ -86,15 +86,21 @@ class AppMainWindow(QMainWindow):
 			self.showMaximized()
 			
 		self.ui.okButton.clicked.connect(self.saveAndExit)
+		self.ui.relocateButton.clicked.connect(self.relocateResource)
 			
-			
+
+	def relocateResource(self):
+		(fileName,flt) = QFileDialog.getOpenFileName(self,self.tr("Open file"), None, "Any file (*)")
+		if fileName:
+			self.collection.relocateResource(fileName)
+
 	def restoreGeometry(self):
 		if 'geometry' in self.prefs:
 			geo=self.prefs['geometry']
 			r=QRect()
 			r.setCoords(geo[0],geo[1],geo[2],geo[3])
 			self.setGeometry(r)
-		
+			
 		
 	def refreshResource(self):
 		res=self.collection.getCurrentResource()
@@ -102,11 +108,13 @@ class AppMainWindow(QMainWindow):
 		self.ui.labelEdit.setText(res.getLabel())
 		url=res.getUrl()
 		self.tableModel.init()
+		self.ui.relocateButton.hide()
 		if res.url[:7]=='file://':
 			fpath=urllib.parse.unquote(res.url[7:])
 			self.ui.urlCaption.setText('Path')
 			if not os.path.exists(fpath):
 				self.ui.urlLabel.setText('<font color="red">'+fpath+'</font>')
+				#self.ui.relocateButton.show()
 			else:
 				self.ui.urlLabel.setText(fpath)
 				
@@ -271,7 +279,7 @@ class CompleterDelegate(QStyledItemDelegate):
 		c=self.currentEditor.completer()
 		model=c.model()
 		model.setStringList(l)
-
+		self.app.tableModel.setLastSuggestions(l)
 
 
 class TaggerSuggestions(QAbstractListModel):
@@ -293,6 +301,8 @@ class TaggerTableModel(QAbstractTableModel):
 	
 	NotAssignedBrush=QBrush(QColor(160,160,160,255))
 	AssignedBrush=QBrush(QColor(0,0,0,255))
+	NotAssignedBrushNew=QBrush(QColor(160,160,160,180))
+	AssignedBrushNew=QBrush(QColor(200,0,0,255))
 	InheritedFont=QFont()
 	InheritedFont.setItalic(True)
 	NormalFont=QFont()
@@ -306,6 +316,10 @@ class TaggerTableModel(QAbstractTableModel):
 		self.headers=['','Tag','Comment']
 		self.view=view
 		self.collection=collection
+		self.lastSuggestions=None
+	
+	def setLastSuggestions(self,l):
+		self.lastSuggestions=l
 		
 		
 	def init(self):
@@ -342,21 +356,34 @@ class TaggerTableModel(QAbstractTableModel):
 		tagging=tag.getTagging(self.collection.getCurrentResource())
 		if col==self.COL_TAG:
 			if tagging.state==Tag.INHERITED:
-				if role == Qt.ForegroundRole: return self.AssignedBrush
-				elif role == Qt.FontRole: return self.InheritedFont
+				if role == Qt.ForegroundRole: 
+					if tag.isNew:
+						return self.AssignedBrushNew
+					else:
+						return self.AssignedBrush
+				elif role == Qt.FontRole: 
+					return self.InheritedFont
 				if role==Qt.ToolTipRole:
 					return 'From: '+tagging.inheritedFrom
 			elif tagging.state==Tag.ASSIGNED:
 				if role == Qt.ForegroundRole: 
-					return self.AssignedBrush
+					if tag.isNew:
+						return self.AssignedBrushNew
+					else:
+						return self.AssignedBrush
 				elif role == Qt.FontRole: 
 					if tagging.inheritedFrom:
 						return self.InheritedFont
 					else:
 						return self.NormalFont
 			elif tagging.state==Tag.NOT_ASSIGNED:
-				if role == Qt.ForegroundRole: return self.NotAssignedBrush
-				elif role == Qt.FontRole: return self.NormalFont
+				if role == Qt.ForegroundRole: 
+					if tag.isNew:
+						return self.NotAssignedBrushNew
+					else:
+						return self.NotAssignedBrush
+				elif role == Qt.FontRole: 
+					return self.NormalFont
 			if role==Qt.DisplayRole or role==Qt.EditRole:
 				return tag.name
 			if role==Qt.SizeHintRole:
@@ -403,7 +430,10 @@ class TaggerTableModel(QAbstractTableModel):
 					return False
 				if index.row()==len(tags):
 					self.beginInsertRows(QModelIndex(),len(tags),len(tags))
-					self.collection.addTag(value)
+					isNew=True
+					if self.lastSuggestions and value in self.lastSuggestions:
+						isNew=False
+					self.collection.addTag(value,isNew)
 					self.endInsertRows()
 					QTimer.singleShot(200,self.editLastRow)
 					#self.view.edit(self.index(len(tags),self.COL_TAG))

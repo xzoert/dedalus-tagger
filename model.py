@@ -103,8 +103,8 @@ class ResourceCollection:
 		tag=self.tags[tagIdx]
 		tag.assign(self.getCurrentResource())
 
-	def addTag(self,name):
-		tag=Tag(self,name)
+	def addTag(self,name,isNew=False):
+		tag=Tag(self,name,isNew)
 		self.tags.append(tag)
 		tag.assign(self.getCurrentResource())
 		
@@ -132,6 +132,15 @@ class ResourceCollection:
 		conn.close()
 		r=json.loads(r)
 		return r
+		
+	def relocateResource(self,newUrl):
+		res=self.getCurrentResource()
+		if newUrl[0]=='/':
+			newUrl='file://'+urllib.parse.quote(newUrl)
+		r=self.post('/rename/',{'url':res.getUrl(),'newUrl':newUrl,'renameDescendants':True})
+		print(r)
+		
+		
 
 	def getSuggestions(self,s,curTagIdx=None):
 		exclude=[]
@@ -251,11 +260,12 @@ class Tag:
 	
 	notAssigned=None
 	
-	def __init__(self,collection,name):
+	def __init__(self,collection,name,isNew=False):
 		self.name=name
 		self.collection=collection
 		self.taggings={}
 		self.assignedCount=0
+		self.isNew=isNew
 		if self.notAssigned is None:
 			self.notAssigned=Tagging(None,None)
 

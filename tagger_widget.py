@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'tagger.ui'
 #
-# Created: Fri Nov  4 08:28:29 2016
+# Created: Fri Nov  4 17:18:55 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -92,6 +92,10 @@ class Ui_MainWindow(object):
         self.urlLabel.setFont(font)
         self.urlLabel.setObjectName("urlLabel")
         self.horizontalLayout_2.addWidget(self.urlLabel)
+        self.relocateButton = QtGui.QPushButton(self.widget_2)
+        self.relocateButton.setMaximumSize(QtCore.QSize(80, 16777215))
+        self.relocateButton.setObjectName("relocateButton")
+        self.horizontalLayout_2.addWidget(self.relocateButton)
         self.verticalLayout_2.addWidget(self.widget_2)
         self.widget_3 = QtGui.QWidget(self.widget_4)
         self.widget_3.setObjectName("widget_3")
@@ -167,6 +171,7 @@ class Ui_MainWindow(object):
         self.fileLabel.setText(QtGui.QApplication.translate("MainWindow", "Files", None, QtGui.QApplication.UnicodeUTF8))
         self.urlCaption.setText(QtGui.QApplication.translate("MainWindow", "URL", None, QtGui.QApplication.UnicodeUTF8))
         self.urlLabel.setText(QtGui.QApplication.translate("MainWindow", "file:///questo/e/quello.pdf", None, QtGui.QApplication.UnicodeUTF8))
+        self.relocateButton.setText(QtGui.QApplication.translate("MainWindow", "Relocate", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("MainWindow", "Label", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("MainWindow", "Tags", None, QtGui.QApplication.UnicodeUTF8))
         self.cancelButton.setText(QtGui.QApplication.translate("MainWindow", "Cancel", None, QtGui.QApplication.UnicodeUTF8))
