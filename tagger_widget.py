@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'tagger.ui'
 #
-# Created: Fri Nov  4 17:18:55 2016
+# Created: Sat Nov  5 08:33:44 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!

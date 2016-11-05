@@ -1,4 +1,4 @@
-import urllib.request, urllib.parse, json, re, html
+import urllib.request, urllib.parse, json, re, html, os, os.path
 
 
 def pathFromUrl(url):
@@ -157,12 +157,18 @@ class ResourceCollection:
 		data=[]
 		for res in self.resources:
 			if res._modified:
+				isDir=0
+				if res.url[:7]=='file://':
+					fpath=urllib.parse.unquote(res.url[7:])
+					if os.path.isdir(fpath):
+						isDir=1
 				tags=[]
 				for tag in self.tags:
 					tagging=tag.getTagging(res)
 					if tagging.state==Tag.ASSIGNED:
 						tags.append([tag.name,tagging.comment])
-				data.append({'url':res.getUrl(),'tags':tags,'data':{'label':res.getLabel()}})
+				print('ISDIR',isDir)
+				data.append({'url':res.getUrl(),'tags':tags,'data':{'label':res.getLabel(),'isdir':isDir}})
 		if len(data):
 			r=self.post('/load/',data,5.0)
 
