@@ -299,9 +299,9 @@ class TaggerSuggestions(QAbstractListModel):
 
 class TaggerTableModel(QAbstractTableModel):
 	
-	NotAssignedBrush=QBrush(QColor(160,160,160,255))
+	NotAssignedBrush=QBrush(QColor(140,140,140,255))
 	AssignedBrush=QBrush(QColor(0,0,0,255))
-	NotAssignedBrushNew=QBrush(QColor(160,160,160,180))
+	NotAssignedBrushNew=QBrush(QColor(140,140,140,180))
 	AssignedBrushNew=QBrush(QColor(200,0,0,255))
 	InheritedFont=QFont()
 	InheritedFont.setItalic(True)
