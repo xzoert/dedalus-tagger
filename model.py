@@ -228,7 +228,7 @@ class Resource:
 				except:
 					pass
 					
-			return urllib.parse.unquote(self.url.split('/')[-1])
+			#return urllib.parse.unquote(self.url.split('/')[-1])
 		
 	def save(self):
 		if self.modified:

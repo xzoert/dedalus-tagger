@@ -105,12 +105,16 @@ class AppMainWindow(QMainWindow):
 	def refreshResource(self):
 		res=self.collection.getCurrentResource()
 		if not res: return
-		self.ui.labelEdit.setText(res.getLabel())
+		url=res.getUrl()
+		self.ui.labelEdit.setPlaceholderText(urllib.parse.unquote(url.split('/')[-1]))
+		label=res.getLabel()
+		if label:
+			self.ui.labelEdit.setText(res.getLabel())
 		url=res.getUrl()
 		self.tableModel.init()
 		self.ui.relocateButton.hide()
-		if res.url[:7]=='file://':
-			fpath=urllib.parse.unquote(res.url[7:])
+		if url[:7]=='file://':
+			fpath=urllib.parse.unquote(url[7:])
 			self.ui.urlCaption.setText('Path')
 			if not os.path.exists(fpath):
 				self.ui.urlLabel.setText('<font color="red">'+fpath+'</font>')
@@ -141,6 +145,8 @@ class AppMainWindow(QMainWindow):
 		res=self.collection.getCurrentResource()
 		if res:
 			res.setLabel(s)
+			if not s:
+				s=urllib.parse.unquote(res.getUrl().split('/')[-1])
 			self.ui.resourceList.item(res.getIndex()).setText(s)
 
 	def itemClicked(self,index):
@@ -221,7 +227,10 @@ class ResourceListItem(QListWidgetItem):
 	
 	def __init__(self,res):
 		self.res=res
-		QListWidgetItem.__init__(self,res.getLabel())
+		label=res.getLabel()
+		if not label:
+			label=urllib.parse.unquote(res.getUrl().split('/')[-1])
+		QListWidgetItem.__init__(self,label)
 		
 	def getResource(self):
 			return self.res
