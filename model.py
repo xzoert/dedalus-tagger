@@ -17,7 +17,7 @@ class ResourceCollection:
 			for url in urls:
 				if not self.resourceByUrl(url):
 					self.resources.append(Resource(self,url))
-		self.resources=sorted(self.resources,key=lambda res: res.label)
+		self.resources=sorted(self.resources,key=lambda res: res.forcedLabel())
 		for i in range(len(self.resources)):
 			self.resources[i].idx=i
 			
@@ -167,8 +167,7 @@ class ResourceCollection:
 					tagging=tag.getTagging(res)
 					if tagging.state==Tag.ASSIGNED:
 						tags.append([tag.name,tagging.comment])
-				print('ISDIR',isDir)
-				data.append({'url':res.getUrl(),'tags':tags,'data':{'label':res.getLabel(),'isdir':isDir}})
+				data.append({'url':res.getUrl(),'tags':tags,'data':{'label':res.forcedLabel(),'isdir':isDir}})
 		if len(data):
 			r=self.post('/load/',data,5.0)
 
@@ -228,11 +227,8 @@ class Resource:
 				except:
 					pass
 					
-			#return urllib.parse.unquote(self.url.split('/')[-1])
+			return urllib.parse.unquote(self.url.split('/')[-1])
 		
-	def save(self):
-		if self.modified:
-			pass
 		
 	def post(self,addr,data,to=0.5):
 		body=json.dumps(data).encode('utf-8')
@@ -245,6 +241,12 @@ class Resource:
 		
 	def getLabel(self):                                    
 		return self.label
+		
+	def forcedLabel(self):
+		if not self.label:
+			return urllib.parse.unquote(self.url.split('/')[-1])
+		else:
+			return self.label
 		
 	def setLabel(self,v):
 		if v!=self.label:

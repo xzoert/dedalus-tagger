@@ -145,9 +145,7 @@ class AppMainWindow(QMainWindow):
 		res=self.collection.getCurrentResource()
 		if res:
 			res.setLabel(s)
-			if not s:
-				s=urllib.parse.unquote(res.getUrl().split('/')[-1])
-			self.ui.resourceList.item(res.getIndex()).setText(s)
+			self.ui.resourceList.item(res.getIndex()).setText(res.forcedLabel())
 
 	def itemClicked(self,index):
 		self.ui.tableView.selectionModel().select(index, QItemSelectionModel.Deselect)
@@ -227,9 +225,7 @@ class ResourceListItem(QListWidgetItem):
 	
 	def __init__(self,res):
 		self.res=res
-		label=res.getLabel()
-		if not label:
-			label=urllib.parse.unquote(res.getUrl().split('/')[-1])
+		label=res.forcedLabel()
 		QListWidgetItem.__init__(self,label)
 		
 	def getResource(self):
