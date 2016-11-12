@@ -1,0 +1,25 @@
+[Desktop Entry]
+Type=Action
+TargetLocation=true
+ToolbarLabel[en_US]=Dedalus
+ToolbarLabel[en]=Dedalus
+ToolbarLabel[C]=Dedalus
+Name[en_US]=Dedalus
+Name[en]=Dedalus
+Name[C]=Dedalus
+Profiles=profile-zero;
+
+Icon[en_US]=/usr/share/icons/dedalus.svg
+Icon[en]=/usr/share/icons/dedalus.svg
+Icon[C]=/usr/share/icons/dedalus.svg
+Tooltip[en_US]=Dedalus tagger
+Tooltip[en]=Dedalus tagger
+Tooltip[C]=Dedalus tagger
+
+TargetToolbar=true
+
+[X-Action-Profile profile-zero]
+Exec=dedalus-tagger %F
+Name[en_US]=Default profile
+Name[en]=Default profile
+Name[C]=Default profile
