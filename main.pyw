@@ -12,10 +12,9 @@ import os, os.path, json
 
 class AppMainWindow(QMainWindow):
 	
-	def __init__(self,collection,app):
+	def __init__(self,collection):
 		QMainWindow.__init__(self)
 		self.ui=None
-		self.app=app
 		self.collection=collection
 		self.tableModel=None
 		self.geometryInitialized=0
@@ -134,12 +133,12 @@ class AppMainWindow(QMainWindow):
 	
 	def cancelClicked(self):
 		self.saveInnerGeometry()
-		self.app.quit()
+		self.close()
 		
 	def saveAndExit(self):
 		self.collection.save()
 		self.saveInnerGeometry()
-		self.app.quit()
+		self.close()
 
 	def labelChanged(self,s):
 		res=self.collection.getCurrentResource()
@@ -542,26 +541,42 @@ class HttpPost(QThread,QObject):
 			raise
 
 
+def openTagger(urlList):
+	if len(urlList)<1:
+		print( 'Error, no URL provided' )
+		return False
+	ui = tagger_widget.Ui_MainWindow()
+	collection=ResourceCollection(urlList)
+	mainWindow = AppMainWindow(collection)
+	ui.setupUi(mainWindow)
+	mainWindow.setUi(ui)
+	mainWindow.show()
+	return True
+	
+
 
 def main():
 	app = QApplication(sys.argv)
+	'''
 	ui = tagger_widget.Ui_MainWindow()
 	if len(sys.argv)<2:
 		print( 'Error, no URL provided' )
 		sys.exit()
 	collection=ResourceCollection(sys.argv[1:])
-	mainWindow = AppMainWindow(collection,app)
+	mainWindow = AppMainWindow(collection)
 	ui.setupUi(mainWindow)
-	mainWindow.setUi(ui)
-
+	mainWindow.setUi(ui)	
 		
 
 	mainWindow.show()
+	'''
 	
-	app.exec_()
+	if openTagger(sys.argv[1:]):
+		app.exec_()
 	
 	
 	sys.exit()
+	
 if __name__ == "__main__":
 	main()
 
