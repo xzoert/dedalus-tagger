@@ -8,7 +8,7 @@ def pathFromUrl(url):
 class ResourceCollection:
 
 	def __init__(self,urls):
-		self.baseUrl='http://localhost:8000';
+		self.baseUrl='http://localhost:4541';
 		self.resources=[]
 		self.tags=[]
 		self.tagsSorted=False
